@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>website-edit</title>
+  <link rel="stylesheet" href="../dist/css/bootstrap.min.css">
+  <link rel="stylesheet" href="../dist/css/style.css">
+  <meta name="viewport" content="initial-scale=1, user-scalable=no">
+  <meta name="apple-mobile-web-app-capable" content="yes">
+  <meta name="apple-mobile-web-app-status-bar-style" content="black">
+</head>
+<body>
+ <div class="row">
+    <nav class="navbar navbar-dark bg-primary fixed-top text-white font-weight-bold">
+      <ul class="navbar-nav col-lg-1">
+        <li><a class="nav-item nav-link" href="website-list.html"><i class="fas fa-chevron-left"></i></a></li>
+      </ul>
+      <div class="col-lg-2 d-none d-md-block">
+      <a href="website-list.html" class="navbar-brand">
+        Websites
+      </a>
+      </div>
+      <ul class="navbar-nav col-lg-1 d-none d-md-block">
+        <li><a class="nav-item nav-link" href="website-new.html"><i class="fas fa-plus"></i></a></li>
+      </ul>
+      <div class="col-lg-7 col-sm-1">
+        <span class="navbar-brand">
+          Edit Websites
+        </span>
+      </div>
+      <ul class="navbar-nav col-lg-1 col-sm-1">
+        <li><a class="nav-item nav-link" href="website-list.html"><i class="fas fa-check"></i></a></li>
+      </ul>
+    </nav>
+
+    <div class="col-lg-4 col-sm-0 d-none d-md-block">
+      <div class="container content">
+        <ul class="list-group text-primary">
+          <li class="list-group-item d-flex justify-content-between align-items-center">
+            Address Book App
+            <a href="website-edit.html" class="badge badge-pill"><i class="fas fa-cog"></i></a>
+          </li>
+          <li class="list-group-item d-flex justify-content-between align-items-center">
+            Blogger
+            <a href="website-edit.html" class="badge badge-pill"><i class="fas fa-cog"></i></a>
+          </li>
+          <li class="list-group-item d-flex justify-content-between align-items-center">
+            Blogging App
+            <a href="website-edit.html" class="badge badge-pill"><i class="fas fa-cog"></i></a>
+          </li>
+          <li class="list-group-item d-flex justify-content-between align-items-center">
+            Script Testing App
+            <a href="website-edit.html" class="badge badge-pill"><i class="fas fa-cog"></i></a>
+          </li>
+        </ul>
+      </div>
+    </div>
+
+    <div class="col-lg-8  col-sm-12">
+      <div class="container content">
+        <label for="webname">Website Name</label>
+        <input class="form-control" id="webname" placeholder="Blogger" type="text"/>
+        <label for="desc">Website Description </label>
+        <div>
+          <textarea class="form-control" rows="10" cols="50" id="desc">Description</textarea>
+        </div>
+        <p></p>
+        <a href="website-list.html" class="btn btn-danger btn-block"> Delete </a>
+      </div>
+    </div>
+   <br>
+   <br>
+   <p></p>
+   <nav class="navbar navbar-dark bg-primary fixed-bottom text-white">
+     <div class="col-11">
+     </div>
+     <ul class="navbar-nav col-1">
+       <li><a class="nav-item nav-link" href="../user/profile.html"><i class="fas fa-user"></i></a></li>
+     </ul>
+   </nav>
+</div>
+<script defer src="https://use.fontawesome.com/releases/v5.0.6/js/all.js"></script>
+</body>
+</html>
