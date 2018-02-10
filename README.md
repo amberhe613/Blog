@@ -3,7 +3,7 @@ This project was generated with [Angular CLI](https://github.com/angular/angular
 
 ## Development server
 
-Run `ng serve` for a dev server. Navigate to `http://localhost:4200/`. The app will automatically reload if you change any of the source files. It is hosted on heroku at https://fierce-lowlands-99715.herokuapp.com/
+Run `ng serve` for a dev server. Navigate to `http://localhost:4200/`. The app will automatically reload if you change any of the source files. It is hosted on heroku at https://cs5610-amberhe-2.herokuapp.com/
 
 ## Code scaffolding
 
