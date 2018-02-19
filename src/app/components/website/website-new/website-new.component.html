@@ -1,3 +1,69 @@
-<p>
-  website-new works!
-</p>
+<div class="row">
+  <nav class="navbar navbar-dark bg-primary fixed-top text-white font-weight-bold sm">
+    <ul class="navbar-nav col-lg-1 col-xs-1">
+      <li><a [routerLink]="['/user/:userId/website']" class="nav-item nav-link"><i class="fas fa-chevron-left"></i></a></li>
+    </ul>
+    <div class="col-lg-2 col-xs-0 d-none d-md-block">
+      <a [routerLink]="['/user/:userId/website']" class="navbar-brand">
+        Websites
+      </a>
+    </div>
+    <ul class="navbar-nav col-xs-0 col-lg-1 d-none d-md-block">
+      <li><a [routerLink]="['/user/:userId/website']" class="nav-item nav-link"><i class="fas fa-plus"></i></a></li>
+    </ul>
+    <div class="col-lg-7 col-xs-6">
+        <span class="navbar-brand">
+          New Websites
+        </span>
+    </div>
+    <ul class="navbar-nav col-lg-1 col-xs-1">
+      <li><a [routerLink]="['/user/:userId/website']" class="nav-item nav-link"><i class="fas fa-check"></i></a></li>
+    </ul>
+  </nav>
+
+  <div class="col-lg-4 col-sm-0 d-none d-md-block">
+    <div class="container content">
+      <ul class="list-group text-primary">
+        <li class="list-group-item d-flex justify-content-between align-items-center">
+          Address Book App
+          <a [routerLink]="['/user/:userId/website/:websiteId']" class="badge badge-pill"><i class="fas fa-cog"></i></a>
+        </li>
+        <li class="list-group-item d-flex justify-content-between align-items-center">
+          Blogger
+          <a [routerLink]="['/user/:userId/website/:websiteId']" class="badge badge-pill"><i class="fas fa-cog"></i></a>
+        </li>
+        <li class="list-group-item d-flex justify-content-between align-items-center">
+          Blogging App
+          <a [routerLink]="['/user/:userId/website/:websiteId']" class="badge badge-pill"><i class="fas fa-cog"></i></a>
+        </li>
+        <li class="list-group-item d-flex justify-content-between align-items-center">
+          Script Testing App
+          <a [routerLink]="['/user/:userId/website/:websiteId']" class="badge badge-pill"><i class="fas fa-cog"></i></a>
+        </li>
+      </ul>
+    </div>
+  </div>
+
+  <div class="col-lg-8  col-sm-12">
+    <div class="container content">
+      <label for="name">Name</label>
+      <input class="form-control" id="name" placeholder="Name" type="text"/>
+      <label for="desc">Description </label>
+      <div>
+        <textarea class="form-control" rows="10" cols="50" id="desc">Description</textarea>
+      </div>
+      <p></p>
+    </div>
+  </div>
+  <br>
+  <br>
+  <p></p>
+  <nav class="navbar navbar-dark bg-primary fixed-bottom text-white">
+    <div class="col-11">
+    </div>
+    <ul class="navbar-nav col-1">
+      <li><a [routerLink]="['/user/:userId']" class="nav-item nav-link"><i class="fas fa-user"></i></a></li>
+    </ul>
+  </nav>
+</div>
+<script defer src="https://use.fontawesome.com/releases/v5.0.6/js/all.js"></script>

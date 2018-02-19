@@ -1,3 +1,14 @@
-<p>
-  register works!
-</p>
+<div class="container-fluid">
+  <h1>Register</h1>
+  <label for="username">Username </label>
+  <input class="form-control" id="username" placeholder="Username" type="text"/>
+  <label for="password">Password</label>
+  <input class="form-control" id="password" placeholder="Password" type="password"/>
+  <label for="verify-password">Verify Password</label>
+  <input class="form-control" id="verify-password" placeholder="Verify Password" type="password"/>
+  <a [routerLink]="['/user/:userId']" class="btn btn-primary btn-block"> Register </a>
+  <a [routerLink]="['/login']" class="btn btn-danger btn-block"> Cancel </a>
+</div>
+<br>
+<br>
+<p></p>

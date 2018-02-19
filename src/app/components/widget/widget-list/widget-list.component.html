@@ -1,3 +1,74 @@
-<p>
-  widget-list works!
-</p>
+<nav class="navbar navbar-light fixed-top bg-light font-weight-bold">
+  <ul class="navbar-nav col-1">
+    <li><a [routerLink]="['/user/:userId/website/page/:pageId/widget']" class="nav-item nav-link"><i class="fas fa-chevron-left"></i></a></li>
+  </ul>
+  <div class="col-10">
+    <a [routerLink]="['/user/:userId/website/page/:pageId/widget']" class="navbar-brand">
+      Widgets
+    </a>
+  </div>
+  <ul class="navbar-nav col-1">
+    <li><a [routerLink]="['/user/:userId/website/page/:pageId/widget/new']" class="nav-item nav-link"><i class="fas fa-plus"></i></a></li>
+  </ul>
+</nav>
+
+
+<div class="container content">
+  <div class="row">
+    <div class="col-lg-10">
+      <div class="header d-flex justify-content-between">
+        <h1 class="mb-2">
+          DIZMODO
+        </h1>
+        <a class="badge" href="#"><i class="fas fa-cog text-primary"></i>  <i class="fas fa-bars text-dark"></i></a>
+      </div>
+      <hr>
+      <div class="header d-flex justify-content-between">
+        <h4>Trump Threatens Shutdown as Negotiators Close</h4>
+        <a class="badge" href="#"><i class="fas fa-cog text-primary"></i>  <i class="fas fa-bars text-dark"></i></a>
+      </div>
+      <div class="header d-flex justify-content-between">
+        <img class="mb-2" id="wid-img" src="https://www.gannett-cdn.com/-mm-/ca64d132cfbc521fa9e778c4377ae0c0eb3706c2/c=10-0-1924-1439&r=x393&c=520x390/local/-/media/2018/01/27/USATODAY/USATODAY/636526656079496076-XXX-AP-02022005695.JPG"/>
+        <a class="badge" href="#"><i class="fas fa-cog text-primary"></i>  <i class="fas fa-bars text-dark"></i></a>
+      </div>
+      <div class="header d-flex justify-content-between">
+        <p class="mb-2 col-lg-8">
+          WASHINGTON — President Trump called on Tuesday for shutting down the federal government if
+          Congress does not crack down on illegal immigration, even as congressional negotiators closed
+          in on a major budget deal that would set spending levels for two years and break the cycle of
+          fiscal crises that has bedeviled the nation’s capital.
+        </p>
+        <a class="badge" href="#"><i class="fas fa-cog text-primary"></i>  <i class="fas fa-bars text-dark"></i></a>
+      </div>
+      <hr>
+      <div class="header d-flex justify-content-between">
+        <h4>Falcon Heavy Test Flight</h4>
+        <a class="badge" href="#"><i class="fas fa-cog text-primary"></i>  <i class="fas fa-bars text-dark"></i></a>
+      </div>
+      <div class="header d-flex justify-content-between">
+        <iframe width="350" height="275"
+                src="https://www.youtube.com/embed/bCc16uozHVE">
+        </iframe>
+        <a class="badge" href="#"><i class="fas fa-cog text-primary"></i>  <i class="fas fa-bars text-dark"></i></a>
+      </div>
+      <div class="header d-flex justify-content-between">
+        <p class="mb-10 col-lg-8 col-xs-6">
+          This is an updated version of the live webcast to include both side booster cameras and additional Starman views.
+        </p>
+        <a class="badge" href="#"><i class="fas fa-cog text-primary"></i>  <i class="fas fa-bars text-dark"></i></a>
+      </div>
+    </div>
+  </div>
+</div>
+<br>
+<br>
+<p></p>
+<nav class="navbar bg-light fixed-bottom text-white">
+  <div class="col-11 text-dark">
+    <i class="fas fa-caret-right"></i>     <i class="fas fa-eye"></i>
+  </div>
+  <ul class="navbar-nav col-1">
+    <li><a [routerLink]="['/user/:userId']" class="nav-item nav-link"><i class="fas fa-user"></i></a></li>
+  </ul>
+</nav>
+<script defer src="https://use.fontawesome.com/releases/v5.0.6/js/all.js"></script>

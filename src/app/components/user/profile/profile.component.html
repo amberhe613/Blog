@@ -1,3 +1,35 @@
-<p>
-  profile works!
-</p>
+<nav class="navbar navbar-dark bg-primary fixed-top text-white font-weight-bold">
+  <div class="col-11">
+    <a class="navbar-brand">
+      Profile
+    </a>
+  </div>
+  <ul class="navbar-nav col-1">
+    <li><a class="nav-item nav-link" href="profile.html"><i class="fas fa-check"></i></a></li>
+  </ul>
+</nav>
+
+<div class="container-fluid content">
+  <label for="username">Username</label>
+  <input class="form-control" id="username" type="text"/>
+  <label for="email">Email</label>
+  <input class="form-control" id="email" type="email"/>
+  <label for="first">First Name</label>
+  <input class="form-control" id="first" type="text"/>
+  <label for="last">Last Name</label>
+  <input class="form-control" id="last" type="text"/>
+  <a [routerLink]="['/user/:userId/website']" class="btn btn-primary btn-block"> Website </a>
+  <a [routerLink]="['/login']" class="btn btn-danger btn-block"> Logout </a>
+</div>
+<br>
+<br>
+<p></p>
+<nav class="navbar navbar-dark bg-primary fixed-bottom text-white">
+  <div class="col-11">
+  </div>
+  <ul class="navbar-nav col-1">
+    <li><a [routerLink]="['/user/:userId']" class="nav-item nav-link"><i class="fas fa-user"></i></a></li>
+  </ul>
+</nav>
+
+<script defer src="https://use.fontawesome.com/releases/v5.0.6/js/all.js"></script>
