@@ -33,7 +33,6 @@
     "@angular/language-service": "^5.1.0"
   },
   "devDependencies": {
-
     "@types/jasmine": "~2.8.3",
     "@types/jasminewd2": "~2.0.2",
     "@types/node": "~6.0.60",
@@ -47,6 +46,5 @@
     "karma-jasmine": "~1.1.0",
     "karma-jasmine-html-reporter": "^0.2.2",
     "protractor": "~5.1.2"
-
   }
 }
