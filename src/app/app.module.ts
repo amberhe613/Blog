@@ -1,5 +1,6 @@
-import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
+import { BrowserModule } from '@angular/platform-browser';
+import { FormsModule } from '@angular/forms';
 
 
 import { AppComponent } from './app.component';
@@ -20,8 +21,6 @@ import { WidgetImageComponent } from './components/widget/widget-edit/widget-ima
 import { WidgetYoutubeComponent } from './components/widget/widget-edit/widget-youtube/widget-youtube.component';
 
 import { Routing } from './app.routing';
-import { FormsModule } from '@angular/forms';
-import { HttpModule } from '@angular/http';
 
 @NgModule({
   declarations: [
@@ -45,7 +44,6 @@ import { HttpModule } from '@angular/http';
   imports: [
     BrowserModule,
     FormsModule,
-    HttpModule,
     Routing
   ],
   providers: [],

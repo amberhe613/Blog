@@ -4,9 +4,6 @@
   <input class="form-control" id="username" placeholder="Username" type="text"/>
   <label for="password">Password</label>
   <input class="form-control" id="password" placeholder="Password" type="password"/>
-  <a [routerLink]= "['/login']">Login </a>
-  <a [routerLink]="['/register']">​Register </a>
+  <a [routerLink]="['/user/:userId']" class="btn btn-primary btn-block"> Login </a>
+  <a [routerLink]="['/register']" class="btn btn-success btn-block"> ​Register </a>
 </div>
-<br>
-<br>
-<p></p>

@@ -5,7 +5,7 @@
     </a>
   </div>
   <ul class="navbar-nav col-1">
-    <li><a class="nav-item nav-link" href="profile.html"><i class="fas fa-check"></i></a></li>
+    <li><a [routerLink]="['/user/:userId']" class="nav-item nav-link"><i class="fas fa-check"></i></a></li>
   </ul>
 </nav>
 
@@ -31,5 +31,3 @@
     <li><a [routerLink]="['/user/:userId']" class="nav-item nav-link"><i class="fas fa-user"></i></a></li>
   </ul>
 </nav>
-
-<script defer src="https://use.fontawesome.com/releases/v5.0.6/js/all.js"></script>

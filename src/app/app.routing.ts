@@ -18,8 +18,8 @@ import { WidgetImageComponent } from './components/widget/widget-edit/widget-ima
 import { WidgetYoutubeComponent } from './components/widget/widget-edit/widget-youtube/widget-youtube.component';
 
 const APP_ROUTES: Routes = [
-  { path : '', component : LoginComponent},
-  { path : 'login' , component: LoginComponent},
+  { path : '', redirectTo: '/login', pathMatch: 'full' },
+  { path : 'login' , component: LoginComponent },
   { path : 'register' , component: RegisterComponent },
   { path : 'user/:userId' , component: ProfileComponent },
   { path : 'user/:userId/website' , component: WebsiteListComponent },
