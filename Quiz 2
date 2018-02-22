@@ -1,0 +1,119 @@
+
+﻿Quiz 2
+Select 10 out of 14
+20 minutes
+
+
+CSS Framework: 
+Please use either Bootstrap 4 or W3.css to answer following questions.
+
+
+Example question: Create a small button
+Bootstrap 4 answer: <button type="button" class="btn btn-sm">Small</button>
+W3.CSS answer: <button class="w3-button w3-small">Small</button>
+
+
+Button:
+
+
+1. Create a black/dark button.
+Bootstrap 4 answer: <button type="button" class="btn btn-dark">Black/Dark</button>
+2. Create a white button with red border
+Bootstrap 4 answer: <button type="button" class="btn btn-outline-danger">Red Border</button>
+3. Create a disabled red button.
+Bootstrap 4 answer: <button type="button" class="btn btn-danger disabled">Disabled</button>
+
+
+Form:
+
+1. Create a form with an email input and a password input
+Bootstrap 4 answer: 
+<form>
+  <div class="form-group">
+    <label for="email">Email address:</label>
+    <input type="email" class="form-control" id="email">
+  </div>
+  <div class="form-group">
+    <label for="pwd">Password:</label>
+    <input type="password" class="form-control" id="pwd">
+  </div>
+</from>
+2. Create an inline form with one text input
+Bootstrap 4 answer: 
+<form class="form-inline">
+  <div class="form-group">
+    <label for="text">Input Text:</label>
+    <input type="text" class="form-control" id="text">
+  </div>
+</from>
+3. Create a dropdown
+Bootstrap 4 answer: 
+<div class="dropdown">
+  <button class="btn btn-primary dropdown-toggle" type="button" data-toggle="dropdown">Dropdown
+  <span class="caret"></span></button>
+  <ul class="dropdown-menu">
+    <li><a href="#">HTML</a></li>
+    <li><a href="#">CSS</a></li>
+    <li><a href="#">JavaScript</a></li>
+  </ul>
+</div>
+
+Grid:
+
+
+1. Create three equal-width columns
+Bootstrap 4 answer: 
+<div class="container">
+  <div class="row">
+    <div class="col-4">1</div>
+    <div class="col-4">2</div>
+    <div class="col-4">3</div>
+  </div>
+</div>
+
+2. Create two columns of unequal width (25%/75%)
+Bootstrap 4 answer: 
+<div class="container">
+  <div class="row">
+    <div class="col-3">25%</div>
+    <div class="col-9">75%</div>
+  </div>
+</div>
+
+
+
+
+
+
+
+
+
+
+
+ANGULAR:
+1. Explain what is controller in MVC?
+Model–view–controller (MVC) is an architectural pattern commonly used for developing user interfaces that divides an application into three interconnected parts. 
+The controller is responsible for responding to the user input and perform interactions on the data model objects. The controller receives the input, it validates the input and then performs the business operation that modifies the state of the data model.
+
+2. What directive is used to initialize an angular app?
+The ng-init directive initializes application data.
+
+3. Can an HTML page have multiple “ng-app” directive for bootstrapping multiple AngularJS application?
+The "ng-app" directive defines the root element of an AngularJS application, and it will auto-bootstrap (automatically initialize) the application when a web page is loaded.
+Since, “ng-app” directive is the root element, we are not supposed to have multiple ones. But, we can use angular.bootstrap().
+
+
+
+4. What does the The ng-bind directive used for binding?
+The HTML container where the AngularJS application is displayed, is called the view.
+The view has access to the model, and there are several ways of displaying model data in the view.
+The ng-bind directive, which will bind the innerHTML of the element to the specified model property:
+
+5. What is $scope?
+The scope is the binding part between the HTML (view) and the JavaScript (controller).
+The scope is an object with the available properties and methods.
+The scope is available for both the view and the controller.
+So we can pass the $scope object as an argument to the controller.
+
+6. Which module is required for routing?
+The ngRoute module.
