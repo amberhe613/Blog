@@ -37,7 +37,7 @@ Bootstrap 4 answer:
     <label for="pwd">Password:</label>
     <input type="password" class="form-control" id="pwd">
   </div>
-</from>
+</form>
 
 2. Create an inline form with one text input
 Bootstrap 4 answer: 
