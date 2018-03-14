@@ -9,6 +9,7 @@ import {NgForm, Validators} from '@angular/forms';
 export class LoginComponent implements OnInit {
   @ViewChild('f') loginForm: NgForm;
 
+  title: string;
   username: String;
   password: String;
   errorFlag: boolean;
@@ -16,7 +17,9 @@ export class LoginComponent implements OnInit {
 
   constructor() { }
 
-  ngOnInit() { }
+  ngOnInit() {
+    this.title = "Login";
+  }
 
   login() {
     // fetching data from loginForm
