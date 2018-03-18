@@ -1,13 +1,36 @@
 <div class="container-fluid">
-  <h1>Register</h1>
-  <label for="username">Username </label>
-  <input class="form-control" id="username" placeholder="Username" type="text"/>
-  <label for="password">Password</label>
-  <input class="form-control" id="password" placeholder="Password" type="password"/>
-  <label for="verify-password">Verify Password</label>
-  <input class="form-control" id="verify-password" placeholder="Verify Password" type="password"/>
-  <a [routerLink]="['/user/:userId']" class="btn btn-primary btn-block"> Register </a>
-  <a [routerLink]="['/login']" class="btn btn-danger btn-block"> Cancel </a>
+
+  <div *ngIf="errorFlag"
+       class="alert alert-danger">
+    {{errorMsg}}
+  </div>
+
+  <h1>{{title}}</h1>
+  <form (ngSubmit) = "login()" #f="ngForm">
+    <input placeholder="Username" name="username" type="text"
+           class="form-control" ngModel required #username="ngModel"/>
+    <span class="help-block" *ngIf="!username.valid && username.touched">
+      Please enter username!
+    </span>
+
+    <input placeholder="Password" name="password" type="password"
+           class="form-control" ngModel required #password="ngModel"/>
+    <span class="help-block" *ngIf="!password.valid && password.touched">
+      Please enter password!
+    </span>
+
+    <input placeholder="Verify Password" name="validpassword" type="password"
+           class="form-control" ngModel required #password="ngModel"/>
+    <span class="help-block" *ngIf="!password.valid && password.touched">
+      Please enter password again!
+    </span>
+
+    <button [routerLink]="['/user/:userId']"
+            class="btn btn-primary btn-block"
+            type="submit"
+            [disabled]="!f.valid"> Register </button>
+    <button [routerLink]="['/login']" class="btn btn-danger btn-block" type="button"> Cancel </button>
+  </form>
 </div>
 <br>
 <br>

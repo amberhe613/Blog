@@ -11,19 +11,32 @@
 
 <div class="container-fluid content">
   <label for="username">Username</label>
-  <input class="form-control" id="username" type="text"/>
-  <label for="email">Email</label>
-  <input class="form-control" id="email" type="email"/>
+  <input [(ngModel)]="username"
+         type="text"
+         class="form-control"
+         id="username"
+         placeholder="alice"
+  value={{username}}>
   <label for="first">First Name</label>
-  <input class="form-control" id="first" type="text"/>
+  <input [(ngModel)]="firstName"
+         type="text"
+         class="form-control"
+         id="first"
+         placeholder="Alice">
   <label for="last">Last Name</label>
-  <input class="form-control" id="last" type="text"/>
-  <a [routerLink]="['/user/:userId/website']" class="btn btn-primary btn-block"> Website </a>
-  <a [routerLink]="['/login']" class="btn btn-danger btn-block"> Logout </a>
+  <input [(ngModel)]="lastName"
+         type="text"
+         class="form-control"
+         id="last"
+         placeholder="Wonder">
+  <button [routerLink]="['/user/:userId/website']"
+     class="btn btn-primary btn-block"
+     type="button">Website
+  </button>
+  <button [routerLink]="['/login']"
+          class="btn btn-danger btn-block"
+          type="button">Logout</button>
 </div>
-<br>
-<br>
-<p></p>
 <nav class="navbar navbar-dark bg-primary fixed-bottom text-white">
   <div class="col-11">
   </div>

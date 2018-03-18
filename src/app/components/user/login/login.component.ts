@@ -1,5 +1,5 @@
 import {Component, OnInit, ViewChild} from '@angular/core';
-import {NgForm, Validators} from '@angular/forms';
+import {NgForm, Validators, FormControl } from '@angular/forms';
 
 @Component({
   selector: 'app-login',
@@ -13,7 +13,7 @@ export class LoginComponent implements OnInit {
   username: String;
   password: String;
   errorFlag: boolean;
-  errorMsg = 'Invalid username or password !';
+  errorMsg = 'Invalid username or password!';
 
   constructor() { }
 
@@ -25,5 +25,6 @@ export class LoginComponent implements OnInit {
     // fetching data from loginForm
     this.username = this.loginForm.value.username;
     this.password = this.loginForm.value.password;
+    var loginControl = new FormControl("", Validators.required)
   }
 }

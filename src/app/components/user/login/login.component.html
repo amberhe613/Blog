@@ -8,25 +8,26 @@
   <h1>{{title}}</h1>
   <form (ngSubmit) = "login()" #f="ngForm">
     <input placeholder="Username" name="username" type="text"
-           class="form-control ng-invalid ng-touched" ngModel required #username="ngModel"/>
+           class="form-control" ngModel required #username="ngModel"/>
     <span class="help-block" *ngIf="!username.valid && username.touched">
       Please enter username!
     </span>
 
     <input placeholder="Password" name="password" type="password"
-           class="form-control ng-invalid ng-touched" ngModel required #password="ngModel"/>
+           class="form-control" ngModel required #password="ngModel"/>
     <span class="help-block" *ngIf="!password.valid && password.touched">
-     Please enter password!
+      Please enter password!
     </span>
 
-    <button class="btn btn-primary btn-block"
+    <button [routerLink]="['/user/:userId']" class="btn btn-primary btn-block"
             type="submit"
             [disabled]="!f.valid">Login
     </button>
 
-    <a [routerLink]="['/register']"
+    <button [routerLink]="['/register']"
        class="btn btn-success btn-block"
+       type="button"
        >​Register
-    </a>
+    </button>
   </form>
 </div>
