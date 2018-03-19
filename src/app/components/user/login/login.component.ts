@@ -1,5 +1,7 @@
-import {Component, OnInit, ViewChild} from '@angular/core';
-import {NgForm, Validators, FormControl } from '@angular/forms';
+import { Component, OnInit, ViewChild } from '@angular/core';
+import { NgForm, Validators, FormControl } from '@angular/forms';
+import { Router } from '@angular/router';
+import { UserService } from '../../../services/user.service.client';
 
 @Component({
   selector: 'app-login',
@@ -15,16 +17,20 @@ export class LoginComponent implements OnInit {
   errorFlag: boolean;
   errorMsg = 'Invalid username or password!';
 
-  constructor() { }
+  constructor(private userService: UserService,
+              private router: Router) { }
 
   ngOnInit() {
-    this.title = "Login";
+    this.title = 'Login';
   }
 
   login() {
     // fetching data from loginForm
     this.username = this.loginForm.value.username;
     this.password = this.loginForm.value.password;
-    var loginControl = new FormControl("", Validators.required)
+    const user = this.userService.findUserByCredentials(this.username, this.password);
+    if (user) {
+      this.router.navigate(['/user/', user._id]);
+    }
   }
 }

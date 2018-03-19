@@ -1,15 +1,16 @@
 import { Injectable } from '@angular/core';
+// injecting service into module
 import { Http, RequestOptions, Response } from '@angular/http';
 import { environment } from '../../environments/environment';
 import { Router } from '@angular/router';
-// injecting service into module
+
 @Injectable()
 export class UserService {
   constructor() { }
   users = [
     {_id: '123', username: 'alice', password: 'alice', firstName: 'Alice', lastName: 'Wonder' },
     {_id: '234', username: 'bob', password: 'bob', firstName: 'Bob', lastName: 'Marley' },
-    {_id: '345', username: 'charly', password: 'charly', firstName: 'Charly', lastName: 'Garcia' }
+    {_id: '345', username: 'charlie', password: 'charlie', firstName: 'Charlie', lastName: 'Garcia' }
   ];
   api = {
     'createUser' : this.createUser,
@@ -57,5 +58,11 @@ export class UserService {
         return this.users;
       }
     }
+  }
+
+  findUserByCredentials(username, password) {
+    return this.users.find(function (user) {
+      return user.username === username && user.password === password
+    });
   }
 }
