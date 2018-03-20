@@ -6,7 +6,7 @@
   </div>
 
   <h1>{{title}}</h1>
-  <form (ngSubmit) = "login()" #f="ngForm">
+  <form (ngSubmit) = "register()" #f="ngForm">
     <input placeholder="Username" name="username" type="text"
            class="form-control" ngModel required #username="ngModel"/>
     <span class="help-block" *ngIf="!username.valid && username.touched">
@@ -20,13 +20,12 @@
     </span>
 
     <input placeholder="Verify Password" name="validpassword" type="password"
-           class="form-control" ngModel required #password="ngModel"/>
-    <span class="help-block" *ngIf="!password.valid && password.touched">
+           class="form-control" ngModel required #validpassword="ngModel"/>
+    <span class="help-block" *ngIf="!validpassword.valid && validpassword.touched">
       Please enter password again!
     </span>
 
-    <button [routerLink]="['/user/:userId']"
-            class="btn btn-primary btn-block"
+    <button class="btn btn-primary btn-block"
             type="submit"
             [disabled]="!f.valid"> Register </button>
     <button [routerLink]="['/login']" class="btn btn-danger btn-block" type="button"> Cancel </button>

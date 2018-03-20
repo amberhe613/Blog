@@ -8,9 +8,9 @@ import { Router } from '@angular/router';
 export class UserService {
   constructor() { }
   users = [
-    {_id: '123', username: 'alice', password: 'alice', firstName: 'Alice', lastName: 'Wonder' },
-    {_id: '234', username: 'bob', password: 'bob', firstName: 'Bob', lastName: 'Marley' },
-    {_id: '345', username: 'charlie', password: 'charlie', firstName: 'Charlie', lastName: 'Garcia' }
+    {_id: '123', username: 'alice', password: 'alice', firstName: 'Alice', lastName: 'Wonder'},
+    {_id: '234', username: 'bob', password: 'bob', firstName: 'Bob', lastName: 'Marley'},
+    {_id: '345', username: 'charlie', password: 'charlie', firstName: 'Charlie', lastName: 'Garcia'}
   ];
   api = {
     'createUser' : this.createUser,
@@ -52,12 +52,10 @@ export class UserService {
   }
 
   deleteUser(userId: string) {
-    for (let x = 0; x < this.users.length; x++) {
-      if (this.users[x]._id === userId) {
-        this.users.slice(x, 1);
-        return this.users;
-      }
-    }
+      this.users = this.users.filter(function(el) {
+          return el._id !== userId;
+      });
+      return this.users;
   }
 
   findUserByCredentials(username, password) {

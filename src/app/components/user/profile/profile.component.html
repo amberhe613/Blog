@@ -5,44 +5,54 @@
     </a>
   </div>
   <ul class="navbar-nav col-1">
-    <li><button (click)="update()" class="nav-item nav-link icon-button-color"><i class="fas fa-check"></i></button></li>
+    <li><button (click) = "update()"
+                class="nav-item nav-link text-white icon-button-color"
+                type="button">
+      <i class="fas fa-check"></i></button></li>
   </ul>
 </nav>
 
 <div class="container-fluid content">
-    <label for="username">Username</label>
-    <input [(ngModel)]="username"
-           type="text"
-           class="form-control"
-           id="username"
-           placeholder="alice"
-           value={{username}}>
-    <label for="first">First Name</label>
-    <input [(ngModel)]="firstName"
-           type="text"
-           class="form-control"
-           id="first"
-           placeholder="Alice"
-           value={{firstName}}>
-    <label for="last">Last Name</label>
-    <input [(ngModel)]="lastName"
-           type="text"
-           class="form-control"
-           id="last"
-           placeholder="Wonder"
-           value={{lastName}}>
-    <button class="btn btn-primary btn-block"
-       type="submit">Website
-    </button>
-    <button [routerLink]="['/login']"
-            class="btn btn-danger btn-block"
-            type="button">Logout</button>
+    <form #f="ngForm">
+        <label for="username">Username</label>
+        <input [(ngModel)]="username"
+               name="username"
+               type="text"
+               class="form-control"
+               id="username"
+               placeholder="alice"
+               value="{{username}}"/>
+        <label for="first">First Name</label>
+        <input [(ngModel)]="firstName"
+               name="firstName"
+               type="text"
+               class="form-control"
+               id="first"
+               placeholder="Alice"
+               value="{{firstName}}"/>
+        <label for="last">Last Name</label>
+        <input [(ngModel)]="lastName"
+               name="lastName"
+               type="text"
+               class="form-control"
+               id="last"
+               placeholder="Wonder"
+               value="{{lastName}}"/>
+
+        <button [routerLink]="['/user',userId,'website']"
+                class="btn btn-primary btn-block"
+                type="button">Website</button>
+
+        <button [routerLink]="['/login']"
+                class="btn btn-danger btn-block"
+                type="button">Logout</button>
+    </form>
 </div>
 
 <nav class="navbar navbar-dark bg-primary fixed-bottom text-white">
   <div class="col-11">
   </div>
   <ul class="navbar-nav col-1">
-    <li><a [routerLink]="['/user/:userId']" class="nav-item nav-link"><i class="fas fa-user"></i></a></li>
+    <li><button [routerLink]="['/user', userId]" type="button" class="nav-item nav-link text-white icon-button-color"><i class="fas fa-user"></i></button></li>
   </ul>
 </nav>

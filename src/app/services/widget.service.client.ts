@@ -7,13 +7,22 @@ import { Router } from '@angular/router';
 export class WidgetService {
   constructor() { }
   widgets = [
-    { _id: "123", widgetType: "HEADING", pageId: "321", size: 2, text: "GIZMODO"},
-    { _id: "234", widgetType: "HEADING", pageId: "321", size: 4, text: "Lorem ipsum"},
-    { _id: "345", widgetType: "IMAGE", pageId: "321", width: "100%", url: "http://lorempixel.com/400/200/"},
-    { _id: "456", widgetType: "HTML", pageId: "321", text: "<p>Lorem ipsum</p>"},
-    { _id: "567", widgetType: "HEADING", pageId: "321", size: 4, text: "Lorem ipsum"},
-    { _id: "678", widgetType: "YOUTUBE", pageId: "321", width: "100%", url: "https://youtu.be/AM2Ivdi9c4E"},
-    { _id: "789", widgetType: "HTML", pageId: "321", text: "<p>Lorem ipsum</p>"}
+      {_id: '123', widgetType: 'HEADING', pageId: '321', size: 2, text: 'GIZMODO'},
+      {_id: '234', widgetType: 'HEADING', pageId: '321', size: 4, text: 'Lorem ipsum'},
+      {_id: '345', widgetType: 'IMAGE', pageId: '321', width: '100%',
+          url: 'http://images.beyazgazete.com/haber/2012/10/5/20121005_ofiste-basarinin-anahtari-yavru-kedi-resimleri.jpg'},
+      {_id: '456', widgetType: 'HTML', pageId: '321', text: '<p>Lorem ipsum</p>'},
+      {_id: '567', widgetType: 'HEADING', pageId: '321', size: 4, text: 'Lorem ipsum'},
+      {_id: '678', widgetType: 'YOUTUBE', pageId: '321', width: '100%', url: 'https://www.youtube.com/embed/aqHhpahguVY'},
+      {_id: '789', widgetType: 'HTML', pageId: '321', text: '<p>Lorem ipsum</p>'},
+      {_id: '123', widgetType: 'HEADING', pageId: '234', size: 2, text: 'GIZMODO'},
+      {_id: '234', widgetType: 'HEADING', pageId: '234', size: 4, text: 'Lorem ipsum'},
+      {_id: '345', widgetType: 'IMAGE', pageId: '234', width: '100%',
+          url: 'http://images.beyazgazete.com/haber/2012/10/5/20121005_ofiste-basarinin-anahtari-yavru-kedi-resimleri.jpg'},
+      {_id: '456', widgetType: 'HTML', pageId: '234', text: '<p>Lorem ipsum</p>'},
+      {_id: '567', widgetType: 'HEADING', pageId: '234', size: 4, text: 'Lorem ipsum'},
+      {_id: '678', widgetType: 'YOUTUBE', pageId: '234', width: '100%', url: 'https://www.youtube.com/embed/aqHhpahguVY'},
+      {_id: '789', widgetType: 'HTML', pageId: '234', text: '<p>Lorem ipsum</p>'}
   ];
   api = {
     'createWidget' : this.createWidget,
@@ -35,9 +44,9 @@ export class WidgetService {
     for (let x = 0; x < this.widgets.length; x++) {
       if (this.widgets[x].pageId !== pageId) {
         widgetsList.push(this.widgets[x]);
-        return widgetsList;
       }
     }
+    return widgetsList;
   }
 
   findWidgetById(widgetId: string) {
@@ -58,12 +67,10 @@ export class WidgetService {
   }
 
   deleteWidget(widgetId: string) {
-    for (let x = 0; x < this.widgets.length; x++) {
-      if (this.widgets[x]._id === widgetId) {
-        this.widgets.slice(x, 1);
-        return this.widgets;
-      }
-    }
+      this.widgets = this.widgets.filter(function(el) {
+          return el._id !== widgetId;
+      });
+      return this.widgets;
   }
 }
 

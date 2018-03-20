@@ -1,41 +1,57 @@
 <nav class="navbar navbar-light fixed-top bg-light font-weight-bold">
   <ul class="navbar-nav col-1">
-    <li><a [routerLink]="['/user/:userId/website/page/:pageId/widget']" class="nav-item nav-link"><i class="fas fa-chevron-left"></i></a></li>
+    <li><a [routerLink]="['/user', userId, 'website' ,websiteId, 'page', pageId, 'widget']" class="nav-item nav-link"><i class="fas fa-chevron-left"></i></a></li>
   </ul>
   <div class="col-10">
-    <a [routerLink]="['/user/:userId/website/page/:pageId/widget']" class="navbar-brand">
+    <a [routerLink]="['/user', userId, 'website', websiteId, 'page', pageId, 'widget']" class="navbar-brand">
       Widget Edit
     </a>
   </div>
   <ul class="navbar-nav col-1">
-    <li><a [routerLink]="['/user/:userId/website/page/:pageId/widget']" class="nav-item nav-link"><i class="fas fa-check"></i></a></li>
+    <li><a (click)="updateWidget()" class="nav-item nav-link"><i class="fas fa-check"></i></a></li>
   </ul>
 </nav>
 
 <div class="container content">
-  <label for="name">Name </label>
-  <input class="form-control" id="name" type="text"/>
-  <label for="text">Text</label>
-  <input class="form-control" id="text" type="text"/>
-  <label for="url">URL</label>
-  <input class="form-control" id="url" placeholder="https://www.gannett-cdn.com/-mm-/ca64d132cfbc521fa9e778c4377ae0c0eb3706c2/c=10-0-1924-1439&r=x393&c=520x390/local/-/media/2018/01/27/USATODAY/USATODAY/636526656079496076-XXX-AP-02022005695.JPG" type="text"/>
-  <label for="width">Width</label>
-  <input class="form-control" id="width" placeholder="100%" type="text"/>
-  <label for="upload">Upload</label>
-  <input class="form-control" id="upload" type="file"/>
-
-  <p></p>
-  <a [routerLink]="['/user/:userId/website/page/:pageId/widget']" class="btn btn-primary btn-block">Upload Image</a>
-  <a [routerLink]="['/user/:userId/website/page/:pageId/widget']" class="btn btn-danger btn-block">Delete</a>
+  <form #f="ngForm">
+    <label for="name">Name </label>
+    <input [(ngModel)]="widgetType"
+           name="widgetType"
+           class="form-control"
+           id="name"
+           placeholder="Name"
+           type="text"
+           value="{{widgetType}}"/>
+    <label for="url">URL</label>
+    <input [(ngModel)]="url"
+           name="url"
+           class="form-control"
+           id="url"
+           placeholder="URL"
+           type="text"
+           value="{{url}}"/>
+    <label for="width">Width</label>
+    <input [(ngModel)]="width"
+           name="width"
+           class="form-control"
+           id="width"
+           placeholder="Width"
+           type="text"
+           value="{{width}}"/>
+    <label for="upload">Upload</label>
+    <input class="form-control" id="upload" type="file"/>
+    <br>
+    <a (click)="deleteWidget()" class="btn btn-danger btn-block text-white">Delete</a>
+  </form>
 </div>
 <br>
 <br>
-<p></p>
-<p></p>
-<nav class="navbar bg-light fixed-bottom text-white">
+<br>
+<br>
+<nav class="navbar bg-light fixed-bottom">
   <div class="col-11">
   </div>
   <ul class="navbar-nav col-1">
-    <li><a [routerLink]="['/user/:userId']" class="nav-item nav-link"><i class="fas fa-user"></i></a></li>
+    <li><a [routerLink]="['/user', userId]" class="nav-item nav-link text-dark"><i class="fas fa-user"></i></a></li>
   </ul>
 </nav>

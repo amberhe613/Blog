@@ -1,31 +1,36 @@
 <nav class="navbar navbar-light fixed-top bg-light font-weight-bold">
   <ul class="navbar-nav col-1">
-    <li><a [routerLink]="['/user/:userId/website/page']" class="nav-item nav-link"><i class="fas fa-chevron-left"></i></a></li>
+    <li><a [routerLink]="['/user', userId, 'website', websiteId, 'page']" class="nav-item nav-link"><i class="fas fa-chevron-left"></i></a></li>
   </ul>
   <div class="col-10">
-    <a [routerLink]="['/user/:userId/website/page']" class="navbar-brand">
-      Page
+    <a [routerLink]="['/user', userId, 'website', websiteId, 'page', 'new']" class="navbar-brand">
+      New Page
     </a>
   </div>
   <ul class="navbar-nav col-1">
-    <li><a [routerLink]="['/user/:userId/website/page']" class="nav-item nav-link"><i class="fas fa-check"></i></a></li>
+    <li><a (click)="createNewPage()"
+           class="nav-item nav-link"><i class="fas fa-check"></i></a></li>
   </ul>
 </nav>
 
 <div class="container content">
-  <label for="name">Page Name </label>
-  <input class="form-control" id="name" placeholder="Page Name" type="text"/>
-  <label for="title">Page Title </label>
-  <input class="form-control" id="title" placeholder="Page Name" type="text"/>
-  <br>
-  <br>
-  <p></p>
+  <form #f="ngForm">
+    <label for="name">Page Name </label>
+    <input class="form-control" id="name" placeholder="Page Name"
+           type="text" name="name"
+           ngModel #name="ngModel"/>
+
+    <label for="title">Page Title </label>
+    <input class="form-control" id="title" placeholder="Page Title"
+           type="text" name="title"
+           ngModel #title="ngModel"/>
+  </form>
 </div>
 
 <nav class="navbar bg-light fixed-bottom text-white">
   <div class="col-11">
   </div>
   <ul class="navbar-nav col-1">
-    <li><a [routerLink]="['/user/:userId']" class="nav-item nav-link"><i class="fas fa-user"></i></a></li>
+    <li><a [routerLink]="['/user', userId]" class="nav-item nav-link"><i class="fas fa-user"></i></a></li>
   </ul>
 </nav>

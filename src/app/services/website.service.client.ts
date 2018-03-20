@@ -7,13 +7,13 @@ import { Router } from '@angular/router';
 export class WebsiteService {
   constructor() { }
   websites = [
-    { _id: "123", name: "Facebook", developerId: "456", description: "Lorem" },
-    { _id: "234", name: "Tweeter", developerId: "456", description: "Lorem" },
-    { _id: "456", name: "Gizmodo", developerId: "456", description: "Lorem" },
-    { _id: "890", name: "Go", developerId: "123", description: "Lorem" },
-    { _id: "567", name: "Tic Tac Toe", developerId: "123", description: "Lorem" },
-    { _id: "678", name: "Checkers", developerId: "123", description: "Lorem" },
-    { _id: "789", name: "Chess", developerId: "234", description: "Lorem" }
+    {_id: '123', name: 'Facebook', developerId: '456', description: 'Lorem'},
+    {_id: '234', name: 'Tweeter', developerId: '456', description: 'Lorem'},
+    {_id: '456', name: 'Gizmodo', developerId: '456', description: 'Lorem'},
+    {_id: '890', name: 'Go', developerId: '123', description: 'Lorem'},
+    {_id: '567', name: 'Tic Tac Toe', developerId: '123', description: 'Lorem'},
+    {_id: '678', name: 'Checkers', developerId: '123', description: 'Lorem'},
+    {_id: '789', name: 'Chess', developerId: '234', description: 'Lorem'}
   ];
   api = {
     'createWebsite' : this.createWebsite,
@@ -31,12 +31,12 @@ export class WebsiteService {
 
   findWebsitesByUser(userId: string) {
     const websitesList = [];
-    for (let x = 0; x < this.websites.length; x++) {
-      if (this.websites[x].developerId !== userId) {
+    for (let x = 1; x < this.websites.length; x++) {
+      if (this.websites[x].developerId === userId) {
         websitesList.push(this.websites[x]);
-        return websitesList;
       }
     }
+    return websitesList;
   }
 
   findWebsiteById(websiteId: string) {
@@ -57,12 +57,10 @@ export class WebsiteService {
   }
 
   deleteWebsite(websiteId: string) {
-    for (let x = 0; x < this.websites.length; x++) {
-      if (this.websites[x]._id === websiteId) {
-        this.websites.slice(x, 1);
-        return this.websites;
-      }
-    }
+      this.websites = this.websites.filter(function(el) {
+          return el._id !== websiteId;
+      });
+      return this.websites;
   }
 }
 

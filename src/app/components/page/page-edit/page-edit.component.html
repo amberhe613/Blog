@@ -1,33 +1,45 @@
 <nav class="navbar navbar-light fixed-top bg-light font-weight-bold">
   <ul class="navbar-nav col-1">
-    <li><a [routerLink]="['/user/:userId/website/page']" class="nav-item nav-link"><i class="fas fa-chevron-left"></i></a></li>
+    <li><a [routerLink]="['/user', userId, 'website', websiteId, 'page']" class="nav-item nav-link"><i class="fas fa-chevron-left"></i></a></li>
   </ul>
   <div class="col-10">
-    <a [routerLink]="['/user/:userId/website/page']" class="navbar-brand">
-      Page
+    <a [routerLink]="['/user', userId, 'website', websiteId, 'page', pageId]" class="navbar-brand">
+      Edit Page
     </a>
   </div>
   <ul class="navbar-nav col-1">
-    <li><a [routerLink]="['/user/:userId/website/page']" class="nav-item nav-link"><i class="fas fa-check"></i></a></li>
+    <li><a (click)="editPage()"
+           class="nav-item nav-link"><i class="fas fa-check"></i></a></li>
   </ul>
 </nav>
 
 <div class="container content">
-  <label for="name">Page Name </label>
-  <input class="form-control" id="name" placeholder="Page Name" type="text"/>
-  <label for="title">Page Title </label>
-  <input class="form-control" id="title" placeholder="Page Title" type="text"/>
-  <p></p>
-  <a [routerLink]="['/user/:userId/website/page']" class="btn btn-danger btn-block">Delete</a>
-  <br>
-  <br>
-  <p></p>
+  <form #f="ngForm">
+    <label for="name">Page Name </label>
+    <input [(ngModel)]="pageName"
+           name="pageName"
+           class="form-control"
+           id="name"
+           placeholder="Page Name"
+           type="text"
+           value="{{pageName}}"/>
+    <label for="title">Page Title </label>
+    <input [(ngModel)]="pageTitle"
+           name="pageTitle"
+           class="form-control"
+           id="title"
+           placeholder="Page Title"
+           type="text"
+           value="{{pageTitle}}"/>
+    <p></p>
+    <a (click)="deletePage()" class="btn btn-danger btn-block text-white">Delete</a>
+  </form>
 </div>
 
 <nav class="navbar bg-light fixed-bottom text-white">
   <div class="col-11">
   </div>
   <ul class="navbar-nav col-1">
-    <li><a [routerLink]="['/user/:userId']" class="nav-item nav-link"><i class="fas fa-user"></i></a></li>
+    <li><a [routerLink]="['/user', userId]" class="nav-item nav-link"><i class="fas fa-user"></i></a></li>
   </ul>
 </nav>

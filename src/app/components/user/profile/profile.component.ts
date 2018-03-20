@@ -1,6 +1,6 @@
 import {Component, OnInit, ViewChild} from '@angular/core';
 import { UserService } from '../../../services/user.service.client';
-import {ActivatedRoute, Router} from '@angular/router';
+import { ActivatedRoute, Router } from '@angular/router';
 import {NgForm} from '@angular/forms';
 
 @Component({
@@ -28,14 +28,17 @@ export class ProfileComponent implements OnInit {
           this.username = this.user['username'];
           this.firstName = this.user['firstName'];
           this.lastName = this.user['lastName'];
-        }
-      );
+        });
   }
   update() {
+      this.username = this.profileForm.value.username;
+      this.firstName = this.profileForm.value.firstName;
+      this.lastName = this.profileForm.value.lastName;
+      this.user['username'] = this.username;
+      this.user['firstName'] = this.firstName;
+      this.user['lastName'] = this.lastName;
+      if (this.userService.updateUser(this.userId, this.user)) {
+        this.router.navigate(['/user', this.userId]);
+    }
   }
-
-  viewWebsite() {
-
-  }
-
 }

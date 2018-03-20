@@ -1,10 +1,9 @@
 <nav class="navbar navbar-light fixed-top bg-light font-weight-bold">
   <ul class="navbar-nav col-1">
-    <li><a class="nav-item nav-link"><i class="fas fa-chevron-left"></i></a></li>
+    <li><a [routerLink]="['/user', userId, 'website', websiteId, 'page', pageId, 'widget']" class="nav-item nav-link"><i class="fas fa-chevron-left"></i></a></li>
   </ul>
-  <div class="col-10">
-    <a [routerLink]="['/user/:userId/website/page/:pageId/widget']" class="navbar-brand"></a>
-    Choose Widget
+  <div class="col-11">
+    <a [routerLink]="['/user', userId, 'website', websiteId, 'page', pageId, 'widget']" class="navbar-brand">Choose Widget</a>
   </div>
   <ul class="navbar-nav col-1">
   </ul>
@@ -14,34 +13,34 @@
 <div class="container content">
   <ul class="list-group text-primary">
     <li class="list-group-item d-flex justify-content-between align-items-center">
-      <a href="#">Header</a>
+      <a [routerLink]="['/user', userId, 'website', 'page', pageId, 'widget', 'new', 'header']">Header</a>
     </li>
     <li class="list-group-item d-flex justify-content-between align-items-center">
-      <a href="#">Label</a>
+      <a [routerLink]="['/user', userId, 'website', 'page', pageId, 'widget', 'new', 'label']">Label</a>
     </li>
     <li class="list-group-item d-flex justify-content-between align-items-center">
-      <a href="#">HTML</a>
+      <a [routerLink]="['/user', userId, 'website', 'page', pageId, 'widget', 'new', 'html']">HTML</a>
     </li>
     <li class="list-group-item d-flex justify-content-between align-items-center">
-      <a href="#">Text Input</a>
+      <a [routerLink]="['/user', userId, 'website', 'page', pageId, 'widget', 'new', 'text']">Text Input</a>
     </li>
     <li class="list-group-item d-flex justify-content-between align-items-center">
-      <a href="#">Link</a>
+      <a [routerLink]="['/user', userId, 'website', 'page', pageId, 'widget', 'new', 'link']">Link</a>
     </li>
     <li class="list-group-item d-flex justify-content-between align-items-center">
-      <a href="#">Button</a>
+      <a [routerLink]="['/user', userId, 'website', 'page', pageId, 'widget', 'new', 'button']">Button</a>
     </li>
     <li class="list-group-item d-flex justify-content-between align-items-center">
-      <a href="#">Image</a>
+      <a [routerLink]="['/user', userId, 'website', 'page', pageId, 'widget', 'new', 'image']">Image</a>
     </li>
     <li class="list-group-item d-flex justify-content-between align-items-center">
-      <a href="#">YouTube</a>
+      <a [routerLink]="['/user', userId, 'website', 'page', pageId, 'widget', 'new', 'youtube']">YouTube</a>
     </li>
     <li class="list-group-item d-flex justify-content-between align-items-center">
-      <a href="#">Date Table</a>
+      <a [routerLink]="['/user', userId, 'website', 'page', pageId, 'widget', 'new', 'datetable']">Date Table</a>
     </li>
     <li class="list-group-item d-flex justify-content-between align-items-center">
-      <a href="#">Repeater</a>
+      <a [routerLink]="['/user', userId, 'website', 'page', pageId, 'widget', 'new', 'repeater']">Repeater</a>
     </li>
   </ul>
   <br>
@@ -53,6 +52,6 @@
   <div class="col-11 text-dark">
   </div>
   <ul class="navbar-nav col-1">
-    <li><a [routerLink]="['/user/:userId']" class="nav-item nav-link"><i class="fas fa-user"></i></a></li>
+    <li><a [routerLink]="['/user', userId]" class="nav-item nav-link"><i class="fas fa-user"></i></a></li>
   </ul>
 </nav>

@@ -7,9 +7,11 @@ import { Router } from '@angular/router';
 export class PageService {
   constructor() { }
   pages = [
-    { _id: "321", name: "Post 1", websiteId: "456", description: "Lorem" },
-    { _id: "432", name: "Post 2", websiteId: "456", description: "Lorem" },
-    { _id: "543", name: "Post 3", websiteId: "456", description: "Lorem" }
+      {_id: '321', name: 'Post 1', websiteId: '456', description: 'Lorem'},
+      {_id: '432', name: 'Post 2', websiteId: '456', description: 'Lorem'},
+      {_id: '543', name: 'Post 3', websiteId: '456', description: 'Lorem'},
+      {_id: '234', name: 'Post 4', websiteId: '890', description: 'Lorem'},
+      {_id: '567', name: 'Post 5', websiteId: '890', description: 'Lorem'}
   ];
   api = {
     'createPage' : this.createPage,
@@ -29,11 +31,11 @@ export class PageService {
   findPageByWebsiteId(websiteId: string) {
     const pagesList = [];
     for (let x = 0; x < this.pages.length; x++) {
-      if (this.pages[x].websiteId !== websiteId) {
+      if (this.pages[x].websiteId === websiteId) {
         pagesList.push(this.pages[x]);
-        return pagesList;
       }
     }
+      return pagesList;
   }
 
   findPageById(pageId: string) {
@@ -54,12 +56,10 @@ export class PageService {
   }
 
   deletePage(pageId: string) {
-    for (let x = 0; x < this.pages.length; x++) {
-      if (this.pages[x]._id === pageId) {
-        this.pages.slice(x, 1);
-        return this.pages;
-      }
-    }
+      this.pages = this.pages.filter(function(el) {
+          return el._id !== pageId;
+      });
+      return this.pages;
   }
 }
 
