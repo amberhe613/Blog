@@ -26,9 +26,13 @@ export class PageEditComponent implements OnInit {
           this.userId = params['userId'];
           this.websiteId = params['websiteId'];
           this.pageId = params['pageId'];
-          this.page = this.pageService.findPageById(this.pageId);
-          this.pageName = this.page['name'];
-          this.pageTitle = this.page['description'];
+          this.pageService.findPageById(this.pageId)
+            .subscribe(
+              (page: {}) => {
+                this.page = page;
+                this.pageName = this.page['name'];
+                this.pageTitle = this.page['description'];
+              });
         });
   }
   editPage() {
@@ -36,13 +40,23 @@ export class PageEditComponent implements OnInit {
     this.pageTitle = this.editPageForm.value.pageTitle;
     this.page['name'] = this.pageName;
     this.page['description'] = this.pageTitle;
-    if (this.pageService.updatePage(this.pageId, this.page)) {
-      this.router.navigate(['/user', this.userId, 'website', this.websiteId, 'page']);
-    }
+    this.pageService.updatePage(this.pageId, this.page)
+      .subscribe(
+        res => {
+          this.router.navigate(['/user', this.userId, 'website', this.websiteId, 'page']);
+        },
+        err => {
+        }
+      );
   }
 
   deletePage() {
-    this.pageService.deletePage(this.pageId);
-    this.router.navigate(['/user', this.userId, 'website', this.websiteId, 'page']);
+    this.pageService.deletePage(this.pageId)      .subscribe(
+      res => {
+        this.router.navigate(['/user', this.userId, 'website', this.websiteId, 'page']);
+      },
+      err => {
+      }
+    );
   }
 }

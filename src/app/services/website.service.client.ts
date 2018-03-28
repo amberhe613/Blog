@@ -5,7 +5,6 @@ import { Http, Response, HttpModule, Headers } from '@angular/http';
 import 'rxjs/Rx';
 import { environment } from '../../environments/environment';
 
-
 @Injectable()
 export class WebsiteService {
   constructor(private _http: Http) {}
