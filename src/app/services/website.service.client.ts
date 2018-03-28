@@ -10,45 +10,47 @@ import { environment } from '../../environments/environment';
 export class WebsiteService {
   constructor(private _http: Http) {}
 
+  baseUrl = environment.baseUrl;
+
   createWebsite(userId: string, website: any) {
-    website._id = (String(Date.now()) + Math.floor(Math.random() * 10000)).slice(-3);
-    website.developerId = userId;
-    this.websites.push(website);
-    return website;
+    return this._http.post(this.baseUrl + '/api/user/' + userId + '/website', website)
+      .pipe(function (response) {
+        return response;
+      });
   }
 
   findWebsitesByUser(userId: string) {
-    const websitesList = [];
-    for (let x = 1; x < this.websites.length; x++) {
-      if (this.websites[x].developerId === userId) {
-        websitesList.push(this.websites[x]);
-      }
-    }
-    return websitesList;
+    return this._http.get(this.baseUrl + '/api/user/' + userId + '/website')
+      .map(
+        (res: Response) => {
+          const data = res.json();
+          return data;
+        }
+      );
   }
 
   findWebsiteById(websiteId: string) {
-    for (let x = 0; x < this.websites.length; x++) {
-      if (this.websites[x]._id === websiteId) {
-        return this.websites[x];
-      }
-    }
+    return this._http.get(this.baseUrl + '/api/website/' + websiteId)
+      .map(
+        (res: Response) => {
+          const data = res.json();
+          return data;
+        }
+      );
   }
 
   updateWebsite(websiteId: string, website: any) {
-    for (let x = 0; x < this.websites.length; x++) {
-      if (this.websites[x]._id === websiteId) {
-        this.websites[x] = website;
-        return this.websites[x];
-      }
-    }
+    return this._http.put(this.baseUrl + '/api/website/' + websiteId, website)
+      .pipe(function (response) {
+        return response;
+      });
   }
 
   deleteWebsite(websiteId: string) {
-      this.websites = this.websites.filter(function(el) {
-          return el._id !== websiteId;
+    return this._http.delete(this.baseUrl + '/api/website/' + websiteId)
+      .pipe(function (response) {
+        return response;
       });
-      return this.websites;
   }
 }
 

@@ -21,7 +21,11 @@ export class WebsiteNewComponent implements OnInit {
       .subscribe(
         (params: any) => {
           this.userId = params['userId'];
-          this.websites = this.websiteService.findWebsitesByUser(this.userId);
+          this.websiteService.findWebsitesByUser(this.userId)
+            .subscribe(
+              (websites: [{}]) => {
+                this.websites = websites;
+              });
         });
   }
   createNewWebsite() {
@@ -30,9 +34,14 @@ export class WebsiteNewComponent implements OnInit {
     const newWebsite = {};
     newWebsite['name'] = this.name;
     newWebsite['description'] = this.description;
-    if (this.websiteService.createWebsite(this.userId, newWebsite)) {
-      this.router.navigate(['/user', this.userId, 'website']);
-    }
-  }
+    this.websiteService.createWebsite(this.userId, newWebsite)
+      .subscribe(
+      res => {
+        this.router.navigate(['/user', this.userId, 'website']);
+      },
+      err => {
 
+      }
+    );
+  }
 }
