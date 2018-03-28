@@ -29,9 +29,13 @@ export class WebsiteEditComponent implements OnInit {
               (websites: [{}]) => {
                 this.websites = websites;
               });
-          this.website = this.websiteService.findWebsiteById(this.websiteId);
-          this.name = this.website['name'];
-          this.description = this.website['description'];
+          this.websiteService.findWebsiteById(this.websiteId)
+            .subscribe(
+              (website: {}) => {
+                this.website = website;
+                this.name = this.website['name'];
+                this.description = this.website['description'];
+              });
         });
   }
 
@@ -46,7 +50,6 @@ export class WebsiteEditComponent implements OnInit {
           this.router.navigate(['/user', this.userId, 'website']);
         },
         err => {
-
         }
       );
     }
@@ -58,7 +61,6 @@ export class WebsiteEditComponent implements OnInit {
           this.router.navigate(['/user', this.userId, 'website']);
         },
         err => {
-
         }
       );
   }
