@@ -9,12 +9,12 @@ import {Router} from '@angular/router';
   styleUrls: ['./register.component.css']
 })
 export class RegisterComponent implements OnInit {
-  @ViewChild('f') loginForm: NgForm;
+  @ViewChild('f') registerForm: NgForm;
 
   title: string;
   username: string;
   password: string;
-  validpassword: string;
+  validPassword: string;
   errorFlag: boolean;
   errorMsg = 'Two passwords are different!';
 
@@ -22,20 +22,28 @@ export class RegisterComponent implements OnInit {
               private router: Router) { }
 
   ngOnInit() {
-    this.title = "Register";
+    this.title = 'Register';
   }
 
     register() {
     // fetching data from loginForm
-    this.username = this.loginForm.value.username;
-    this.password = this.loginForm.value.password;
-    this.validpassword = this.loginForm.value.validpassword;
-    if (this.password === this.validpassword) {
+    this.username = this.registerForm.value.username;
+    this.password = this.registerForm.value.password;
+    this.validPassword = this.registerForm.value.validPassword;
+    if (this.password === this.validPassword) {
       const user = {};
       user['username'] = this.username;
       user['password'] = this.password;
-      const newUser = this.userService.createUser(user);
-      this.router.navigate(['/user/', newUser._id]);
+      this.userService.createUser(user)
+        .subscribe(
+          res => {
+            this.errorFlag = false;
+            this.router.navigate(['/user', res.json()]);
+          },
+          err => {
+            this.errorFlag = true;
+          }
+        );
     } else {
         this.errorFlag = true;
     }

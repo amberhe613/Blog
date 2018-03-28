@@ -28,9 +28,14 @@ export class LoginComponent implements OnInit {
     // fetching data from loginForm
     this.username = this.loginForm.value.username;
     this.password = this.loginForm.value.password;
-    const user = this.userService.findUserByCredentials(this.username, this.password);
-    if (user) {
-      this.router.navigate(['/user/', user._id]);
-    }
+    this.userService.findUserByCredentials(this.username, this.password)
+      .subscribe(
+        (data: any) => {
+          this.errorFlag = false;
+          this.router.navigate(['/user', data._id]); },
+        (error: any) => {
+          this.errorFlag = true;
+        }
+      );
   }
 }

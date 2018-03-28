@@ -19,7 +19,7 @@ router.post('/', function(req, res){
       username: req.body.username,
       password: req.body.password
     });
-    res.json({message: "New User created.", location: "/api/user/" + newId});
+    res.json(parseInt(newId));
   }
 });
 

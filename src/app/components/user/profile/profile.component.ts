@@ -24,10 +24,15 @@ export class ProfileComponent implements OnInit {
       .subscribe(
         (params: any) => {
           this.userId = params['userId'];
-          this.user = this.userService.findUserById(this.userId);
-          this.username = this.user['username'];
-          this.firstName = this.user['firstName'];
-          this.lastName = this.user['lastName'];
+          this.userService.findUserById(this.userId)
+            .subscribe(
+              (user: {}) => {
+                this.user = user;
+                this.username = this.user['username'];
+                this.firstName = this.user['firstName'];
+                this.lastName = this.user['lastName'];
+              }
+            );
         });
   }
   update() {
@@ -37,8 +42,14 @@ export class ProfileComponent implements OnInit {
       this.user['username'] = this.username;
       this.user['firstName'] = this.firstName;
       this.user['lastName'] = this.lastName;
-      if (this.userService.updateUser(this.userId, this.user)) {
-        this.router.navigate(['/user', this.userId]);
-    }
+    this.userService.updateUser(this.userId, this.user)
+      .subscribe(
+        res => {
+          this.router.navigate(['/user', this.userId]);
+        },
+        err => {
+
+        }
+      );
   }
 }
