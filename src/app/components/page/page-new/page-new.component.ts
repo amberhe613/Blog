@@ -37,7 +37,7 @@ export class PageNewComponent implements OnInit {
     this.pageTitle = this.newPageForm.value.title;
     const newPage = {};
     newPage['name'] = this.pageName;
-    newPage['description'] = this.pageTitle;
+    newPage['title'] = this.pageTitle;
     this.pageService.createPage(this.websiteId, newPage)
 
       .subscribe(

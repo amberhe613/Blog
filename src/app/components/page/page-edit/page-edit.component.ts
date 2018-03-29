@@ -31,7 +31,7 @@ export class PageEditComponent implements OnInit {
               (page: {}) => {
                 this.page = page;
                 this.pageName = this.page['name'];
-                this.pageTitle = this.page['description'];
+                this.pageTitle = this.page['title'];
               });
         });
   }
@@ -39,7 +39,7 @@ export class PageEditComponent implements OnInit {
     this.pageName = this.editPageForm.value.pageName;
     this.pageTitle = this.editPageForm.value.pageTitle;
     this.page['name'] = this.pageName;
-    this.page['description'] = this.pageTitle;
+    this.page['title'] = this.pageTitle;
     this.pageService.updatePage(this.pageId, this.page)
       .subscribe(
         res => {
