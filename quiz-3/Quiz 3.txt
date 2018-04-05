@@ -1,0 +1,109 @@
+Quiz 3
+Select 10 out of 12
+
+Express
+
+1. Give a sample code to set up route that accepts get requests using express
+
+var express = require('express');
+var router = express.Router();
+
+router.get('/', function(req, res){
+   res.json({message: "GET REQUEST!"});
+});
+
+2. What does app.listen() do in express and what are the parameters it accepts
+Create a HTTP server.
+app.listen(port, [host], [backlog], [callback]])
+For example: 
+app.listen(4040);
+Then we can find your HTTP server in http://localhost:4040
+
+3. How do we start the express server?
+If we write our express server in index.js, then we can use node index.js to start the expire server.
+
+4. Write a code snippet to redirect from /hello to /hi in express with a status code of 200
+var express = require('express');
+var router = express.Router();
+
+router.get('/hello', function(req, res){
+   res.status(200);
+   res.redirect('/hi');
+});
+
+5. What is response.end() used for in express?
+Ends the response process.
+
+6. How do you set the type of response in express
+res.type(type)
+
+Node.js
+
+HTTP module, URL module
+1. Create a HTTP Server and listen on port 4000
+var http = require('http');
+
+//create a server object:
+http.createServer(function (req, res) {
+  res.write('Hello World');
+  res.end(); 
+}).listen(4000); 
+
+
+2. Create a HTTP Server and when any request comes in, respond with text ‘Hello World’ and status code 200
+var http = require("http");
+
+//create a server object:
+var server = http.createServer(function(req, res) {
+  res.writeHead(200, {'Content-Type': 'text/html'});
+  res.write('Hello World');
+  res.end();
+});
+
+server.listen(4000);
+
+3. Create a HTTP Server and when any request comes in, display request URL’s hostname and pathname
+var http = require('http');
+var url = require('url');
+
+http.createServer(function (req, res) {
+  res.writeHead(200, {'Content-Type': 'text/html'});
+  var q = url.parse(req.url, true);
+  //the URL’s hostname:
+  res.write('Hostname: ' + q.host);
+  //the URL’s pathname:
+  res.write('Pathname: ' + q.pathname);
+  res.end();
+}).listen(4000);
+
+File System module, Process module
+1. Count the number of files in current directory
+var http = require('http');
+var fs = require('fs');
+var dir = './currentdirectory';
+
+http.createServer(function (req, res) {
+  fs.readdir(dir, function(err, files) {
+    res.writeHead(200, {'Content-Type': 'text/html'});
+    res.write(files.length);
+    res.end();
+  });
+}).listen(4000);
+
+2. Read text file ‘data.txt’ in the current directory and display its contents
+var http = require('http');
+var fs = require('fs');
+var dir = './currentdirectory';
+
+http.createServer(function (req, res) {
+  fs.readFile(dir, function(err, data) {
+    res.writeHead(200, {'Content-Type': 'text/html'});
+    res.write(data);
+    res.end();
+  });
+}).listen(4000);
+
+3. Display the path of the current working directory
+console.log(__dirname);
+OR
+console.log(path.dirname(__filename));
