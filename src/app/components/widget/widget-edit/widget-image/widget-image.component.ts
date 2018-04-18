@@ -2,6 +2,7 @@ import {Component, OnInit, ViewChild} from '@angular/core';
 import {ActivatedRoute, Router} from '@angular/router';
 import {NgForm} from '@angular/forms';
 import {WidgetService} from '../../../../services/widget.service.client';
+import {SharedService} from '../../../../services/shared.service.client';
 
 @Component({
   selector: 'app-widget-image',
@@ -10,6 +11,7 @@ import {WidgetService} from '../../../../services/widget.service.client';
 })
 export class WidgetImageComponent implements OnInit {
   @ViewChild('f') widgetEditForm: NgForm;
+  user = {};
   userId: string;
   websiteId: string;
   pageId: string;
@@ -19,13 +21,17 @@ export class WidgetImageComponent implements OnInit {
   url: string;
   width: string;
 
-  constructor(private router: Router, private widgetService: WidgetService, private route: ActivatedRoute) { }
+  constructor(private router: Router,
+              private widgetService: WidgetService,
+              private sharedService: SharedService,
+              private activatedRoute: ActivatedRoute) { }
 
   ngOnInit() {
-    this.route.params
+    this.activatedRoute.params
       .subscribe(
         (params: any) => {
-          this.userId = params['userId'];
+          this.user = this.sharedService.user || {};
+          this.userId = this.user['userId'];
           this.websiteId = params['websiteId'];
           this.pageId = params['pageId'];
           this.widgetId = params['widgetId'];

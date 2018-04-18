@@ -2,6 +2,7 @@ import {Component, OnInit, ViewChild} from '@angular/core';
 import {ActivatedRoute, Router} from '@angular/router';
 import {NgForm} from '@angular/forms';
 import {PageService} from '../../../services/page.service.client';
+import {SharedService} from '../../../services/shared.service.client';
 
 @Component({
   selector: 'app-page-edit',
@@ -10,6 +11,7 @@ import {PageService} from '../../../services/page.service.client';
 })
 export class PageEditComponent implements OnInit {
   @ViewChild('f') editPageForm: NgForm;
+  user = {};
   userId: string;
   websiteId: string;
   pageId: string;
@@ -17,13 +19,17 @@ export class PageEditComponent implements OnInit {
   pageName: string;
   pageTitle: string;
 
-  constructor(private router: Router, private pageService: PageService, private route: ActivatedRoute) { }
+  constructor(private router: Router,
+              private pageService: PageService,
+              private sharedService: SharedService,
+              private activatedRoute: ActivatedRoute) { }
 
   ngOnInit() {
-    this.route.params
+    this.activatedRoute.params
       .subscribe(
         (params: any) => {
-          this.userId = params['userId'];
+          this.user = this.sharedService.user || {};
+          this.userId = this.user['userId'];
           this.websiteId = params['websiteId'];
           this.pageId = params['pageId'];
           this.pageService.findPageById(this.pageId)

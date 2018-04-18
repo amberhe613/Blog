@@ -1,6 +1,7 @@
 import { Component, OnInit, ViewChild } from '@angular/core';
 import {NgForm, Validators, FormControl } from '@angular/forms';
 import {UserService} from '../../../services/user.service.client';
+import {SharedService} from '../../../services/shared.service.client';
 import {Router} from '@angular/router';
 
 @Component({
@@ -18,34 +19,26 @@ export class RegisterComponent implements OnInit {
   errorFlag: boolean;
   errorMsg = 'Two passwords are different!';
 
-  constructor(private userService: UserService,
+  constructor(private userService: UserService, private sharedService: SharedService,
               private router: Router) { }
 
   ngOnInit() {
     this.title = 'Register';
   }
 
-    register() {
+  register() {
     // fetching data from loginForm
     this.username = this.registerForm.value.username;
     this.password = this.registerForm.value.password;
     this.validPassword = this.registerForm.value.validPassword;
     if (this.password === this.validPassword) {
-      const user = {};
-      user['username'] = this.username;
-      user['password'] = this.password;
-      this.userService.createUser(user)
-        .subscribe(
-          res => {
-            this.errorFlag = false;
-            this.router.navigate(['/user', res.json()]);
-          },
-          err => {
-            this.errorFlag = true;
-          }
-        );
-    } else {
-        this.errorFlag = true;
+      this.userService
+        .register(this.username, this.password)
+        .subscribe((user) => {
+          this.sharedService.user = user;
+          this.router.navigate(['/user', user._id]);
+        });
     }
   }
+
 }

@@ -2,6 +2,7 @@ import {Component, OnInit, ViewChild} from '@angular/core';
 import {ActivatedRoute, Router} from '@angular/router';
 import {WidgetService} from '../../../../services/widget.service.client';
 import {NgForm} from '@angular/forms';
+import {SharedService} from '../../../../services/shared.service.client';
 
 @Component({
   selector: 'app-widget-header',
@@ -10,6 +11,7 @@ import {NgForm} from '@angular/forms';
 })
 export class WidgetHeaderComponent implements OnInit {
   @ViewChild('f') widgetEditForm: NgForm;
+  user = {};
   userId: string;
   websiteId: string;
   pageId: string;
@@ -19,13 +21,17 @@ export class WidgetHeaderComponent implements OnInit {
   text: string;
   size: string;
 
-  constructor(private router: Router, private widgetService: WidgetService, private route: ActivatedRoute) { }
+  constructor(private router: Router,
+              private widgetService: WidgetService,
+              private sharedService: SharedService,
+              private activatedRoute: ActivatedRoute) { }
 
   ngOnInit() {
-    this.route.params
+    this.activatedRoute.params
       .subscribe(
         (params: any) => {
-          this.userId = params['userId'];
+          this.user = this.sharedService.user || {};
+          this.userId = this.user['userId'];
           this.websiteId = params['websiteId'];
           this.pageId = params['pageId'];
           this.widgetId = params['widgetId'];

@@ -6,7 +6,7 @@ var Website = require("./website.schema.server");
 // POST createWebsite
 router.post('/user/:userId/website', function(req, res){
   //Check if all fields are provided and are valid:
-  if(!req.body.name || !req.body.description){
+  if(!req.body.name){
     res.status(400);
     res.json({message: "Bad Request"});
   } else {
@@ -75,8 +75,7 @@ router.get('/website/:websiteId', function(req, res){
 router.put('/website/:websiteId', function(req, res){
   //Check if all fields are provided and are valid:
   if (!req.params.websiteId
-    || !req.body.name
-    || !req.body.description) {
+    || !req.body.name) {
     res.status(400);
     res.json({message: "Bad Request"});
   } else {

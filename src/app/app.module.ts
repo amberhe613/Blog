@@ -28,6 +28,8 @@ import { UserService } from './services/user.service.client';
 import { WebsiteService } from './services/website.service.client';
 import { PageService } from './services/page.service.client';
 import { WidgetService } from './services/widget.service.client';
+import { SharedService } from './services/shared.service.client';
+import { AuthenticationService } from './services/auth.service.client';
 
 @NgModule({
   declarations: [
@@ -55,7 +57,7 @@ import { WidgetService } from './services/widget.service.client';
     HttpClientModule,
     HttpModule
   ],
-  providers: [UserService, WebsiteService, PageService, WidgetService],
+  providers: [UserService, WebsiteService, PageService, WidgetService, SharedService, AuthenticationService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

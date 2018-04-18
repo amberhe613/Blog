@@ -2,6 +2,7 @@ import {Component, OnInit, ViewChild} from '@angular/core';
 import {ActivatedRoute, Router} from '@angular/router';
 import {PageService} from '../../../services/page.service.client';
 import {NgForm} from '@angular/forms';
+import {SharedService} from '../../../services/shared.service.client';
 
 @Component({
   selector: 'app-page-new',
@@ -10,19 +11,24 @@ import {NgForm} from '@angular/forms';
 })
 export class PageNewComponent implements OnInit {
   @ViewChild('f') newPageForm: NgForm;
+  user = {};
   userId: string;
   websiteId: string;
   pages = [{}];
   pageName: string;
   pageTitle: string;
 
-  constructor(private router: Router, private pageService: PageService, private route: ActivatedRoute) { }
+  constructor(private router: Router,
+              private pageService: PageService,
+              private sharedService: SharedService,
+              private activatedRoute: ActivatedRoute) { }
 
   ngOnInit() {
-    this.route.params
+    this.activatedRoute.params
       .subscribe(
         (params: any) => {
-          this.userId = params['userId'];
+          this.user = this.sharedService.user || {};
+          this.userId = this.user['userId'];
           this.websiteId = params['websiteId'];
           this.pageService.findPageByWebsiteId(this.websiteId)
             .subscribe(
